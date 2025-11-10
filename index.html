@@ -5,149 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RialTech - Seminar TI Nasional</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
+    body { padding-top: 76px; }
 
-  body { padding-top: 76px; }
-
-  /* Animasi background hero */
-  #beranda {
-    animation: bgMove 12s linear infinite;
-    background-size: 120% 120%;
-  }
-  @keyframes bgMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Dropdown */
-  .menu-slide {
-    transform-origin: top;
-    transition: transform .22s ease, opacity .2s ease;
-  }
-  .menu-slide-hidden {
-    transform: scaleY(0);
-    opacity: 0;
-    pointer-events: none;
-  }
-  .menu-slide-shown {
-    transform: scaleY(1);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .wrap-break { white-space: normal; }
-  @media (max-width: 640px) {
-    
-    body {
-      padding-top: 60px; /* header tidak terlalu tinggi */
-    }
-
-    header .py-4 {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-  }
-
+    /* Animasi background hero */
     #beranda {
-    min-height: 60vh !important; /* Lebih pendek */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-size: cover !important; /* Tidak terlalu besar */
-  }
-    #beranda h2 {
-      font-size: 1.8rem;
-      line-height: 2.2rem;
+      animation: bgMove 12s linear infinite;
+      background-size: 120% 120%;
     }
-    #beranda p {
-      font-size: 0.92rem;
-      margin-bottom: 16px;
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    #about {
-      padding-top: 70px;
-      padding-bottom: 40px;
-    }
-    #about h3 {
-      font-size: 1.8rem !important;
-    }
-    #about p {
-      font-size: 0.95rem !important;
-      line-height: 1.45rem;
-    }
-    #about img {
-      width: 65vw;
-      max-width: 260px;
-    }
+    .wrap-break { white-space: normal; }
 
-    #daftar-seminar {
-      padding-top: 40px;
-      padding-bottom: 70px;
+    @media (max-width: 640px) {
+      body {
+        padding-top: 66px;
+      }
+      nav a {
+        font-size: 0.82rem;
+      }
+      nav {
+        gap: 10px !important;
+      }
+      #beranda {
+        min-height: 78vh !important;
+        padding: 24px;
+      }
+      #beranda h2 {
+        font-size: 1.9rem;
+        line-height: 2.3rem;
+      }
     }
-
-    footer img {
-      height: 34px !important;
-    }
-    footer p {
-      font-size: 0.72rem;
-    }
-
-    /* Popup mobile scroll */
-    #popup .modal-body {
-      max-height: calc(100vh - 170px);
-      overflow-y: auto;
-    }
-  }
-</style>
+  </style>
 </head>
+
 <body class="text-gray-900 bg-white antialiased">
 
   <!-- ===== HEADER ===== -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-10 py-4">
+      
+      <!-- Logo -->
       <div class="flex items-center gap-3">
         <img src="about.png" class="w-8 h-8" alt="logo" />
         <h1 class="text-orange-500 font-semibold text-lg">RialTech</h1>
       </div>
 
-      <!-- Desktop Menu -->
-      <nav class="hidden sm:flex gap-8 text-gray-700 font-medium">
+      <!-- MENU: selalu tampil di HP & laptop -->
+      <nav class="flex items-center flex-nowrap gap-3 sm:gap-8 text-gray-700 font-medium">
         <a href="#beranda" class="hover:text-orange-500">Beranda</a>
         <a href="#about" class="hover:text-orange-500">About</a>
         <a href="#daftar-seminar" class="hover:text-orange-500">Daftar Seminar</a>
       </nav>
-
-      <!-- Hamburger (mobile) -->
-      <div class="sm:hidden flex items-center">
-        <button id="hambtn" aria-expanded="false" aria-controls="mobileMenu" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300">
-          <svg id="hambIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile slide-down menu -->
-    <div id="mobileMenu" class="sm:hidden bg-white shadow-md origin-top transform menu-slide menu-slide-hidden">
-      <div class="px-4 pb-4 pt-2">
-        <a href="#beranda" class="block py-3 px-2 rounded hover:bg-orange-50 text-gray-800" onclick="closeMobileMenu()">Beranda</a>
-        <a href="#about" class="block py-3 px-2 rounded hover:bg-orange-50 text-gray-800" onclick="closeMobileMenu()">About</a>
-        <a href="#daftar-seminar" class="block py-3 px-2 rounded hover:bg-orange-50 text-gray-800" onclick="closeMobileMenu()">Daftar Seminar</a>
-      </div>
     </div>
   </header>
 
   <!-- ===== BERANDA ===== -->
   <section id="beranda" class="pt-6 min-h-screen bg-cover bg-center flex flex-col justify-center items-center text-center px-4 sm:px-6 relative"
            style="background-image: url('bg.jpg')">
+    
     <div class="absolute inset-0 bg-black/40"></div>
+
     <div class="relative z-10 max-w-4xl">
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
         Selamat Datang di <span class="text-orange-400">RialTech</span>
       </h2>
+
       <p class="max-w-3xl text-sm sm:text-lg text-gray-200 mb-6 leading-relaxed">
         <span class="font-semibold text-orange-400">RialTech</span> menghadirkan Seminar TI Nasional:
         pengalaman belajar interaktif, inspiratif, dan terkini dari bidang teknologi modern.
       </p>
+
       <a href="#daftar-seminar"
          class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2.5 px-6 rounded-full transition-transform hover:scale-105 shadow-lg">
         Lihat Daftar Seminar
@@ -157,11 +90,13 @@
 
   <!-- ===== ABOUT ===== -->
   <section id="about" class="pt-12 pb-12 min-h-screen flex flex-col md:flex-row items-center px-4 sm:px-6 gap-8 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900">
+    
     <div class="flex-1 text-center md:text-left text-white space-y-6">
       <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-orange-500">Tentang RialTech</h3>
+
       <p class="max-w-2xl text-sm sm:text-lg md:text-xl">
         <span class="font-semibold text-orange-400">RialTech</span> adalah platform seminar teknologi yang menghadirkan pembelajaran interaktif seputar Artificial Intelligence,
-        keamanan siber, dan inovasi digital. Kami menghubungkan mahasiswa, dosen, dan profesional untuk berbagi pengetahuan serta membangun masa depan teknologi.
+        keamanan siber, dan inovasi digital.
       </p>
     </div>
 
@@ -171,7 +106,8 @@
   </section>
 
   <!-- ===== DAFTAR SEMINAR ===== -->
-  <section id="daftar-seminar" class="pt-6 pb-16 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900">
+  <section id="daftar-seminar" class="pt-20 pb-16 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900">
+    
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <h3 class="text-red-400 font-semibold text-center mb-8 text-2xl sm:text-3xl">
         Daftar Seminar TI Nasional
@@ -180,12 +116,13 @@
       <div id="seminarList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
 
-    <!-- ===== POPUP MODAL ===== -->
+    <!-- POPUP MODAL -->
     <div id="popup" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50 p-4">
       <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-5 relative">
-        <button id="closePopupBtn" class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl" aria-label="Tutup">&times;</button>
+        <button id="closePopupBtn" class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+
         <div class="modal-body">
-          <img id="popupImg" class="w-full h-52 sm:h-64 object-cover rounded-lg mb-4" alt="gambar seminar" />
+          <img id="popupImg" class="w-full h-52 sm:h-64 object-cover rounded-lg mb-4" />
           <h4 id="popupJudul" class="text-xl font-bold text-gray-800 mb-2 wrap-break"></h4>
           <p class="text-sm text-gray-600 mb-3">
             <strong>🕘 Waktu:</strong> <span id="popupWaktu"></span><br />
@@ -194,9 +131,8 @@
           </p>
           <p id="popupDeskripsi" class="text-gray-700 mb-4"></p>
 
-          <!-- Link Google Form -->
           <a id="popupDaftarLink" target="_blank"
-             class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md transition-all duration-200">
+             class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md">
             Daftar Sekarang
           </a>
         </div>
@@ -207,83 +143,33 @@
   <!-- ===== FOOTER ===== -->
   <footer class="bg-gray-50 py-6 flex flex-col items-center text-black space-y-4">
     <div class="flex justify-center gap-8">
-      <img src="sasmita.png" class="h-10" alt="sasmita" />
-      <img src="unpam.png" class="h-10" alt="unpam" />
-      <img src="webinar.png" class="h-10" alt="webinar" />
+      <img src="sasmita.png" class="h-10" />
+      <img src="unpam.png" class="h-10" />
+      <img src="webinar.png" class="h-10" />
     </div>
     <p class="text-sm text-gray-400">© 2025 RialTech. All Rights Reserved.</p>
   </footer>
 
-  <!-- ===== SCRIPT DATA SEMINAR & POPUP ===== -->
+  <!-- ===== SCRIPT ===== -->
   <script>
-    // link formulir (sementara)
     const formLink = "https://docs.google.com/forms/d/e/1FAIpQLSe_BzPAe3Z-YMHN7TXOdS7yaX1jpRP57feSRov3FAcbEy2x3g/viewform?usp=publish-editor";
 
     const seminarData = [
-      {
-        id: 1,
-        img: "seminar1.jpg",
-        judul: "ARTIFICIAL INTELLIGENCE FOR 4.0 AND SOCIETY 5.0",
-        waktu: "09.00 - selesai",
-        tanggal: "3 Juni 2025",
-        pembicara: "Ir. Asrul Sani, S.T. M.Kom., M.T., Ph.D, IPM.",
-        deskripsi: "Temukan bagaimana AI menjadi motor penggerak era Revolusi Industri 4.0 dan Society 5.0!"
-      },
-      {
-        id: 2,
-        img: "seminar2.jpg",
-        judul: "INOVASI DAN PEMANFAATAN TEKNOLOGI PEMBELAJARAN DARING DI ERA REVOLUSI INDUSTRI 4.0",
-        waktu: "09.30 - selesai",
-        tanggal: "26 Januari 2021",
-        pembicara: "Dr. Dedy Hartama & Solly Aryza Lubis",
-        deskripsi: "Pembelajaran modern berbasis daring yang interaktif dan efektif."
-      },
-      {
-        id: 3,
-        img: "seminar3.jpg",
-        judul: "BUILDING AWARENESS THE IMPORTANT INTELEGENT CYBER SECURITY",
-        waktu: "09.00 - 13.00",
-        tanggal: "12 September 2021",
-        pembicara: "K. M. Jauharul Maarif & Yudhis Thiro K.Y.",
-        deskripsi: "Pentingnya keamanan siber dalam melindungi data di era digital."
-      },
-      {
-        id: 4,
-        img: "seminar4.jpg",
-        judul: "PERAN TEKNOLOGI INFORMASI DAN KECERDASAN BUATAN PADA PENANGANAN PANDEMI COVID-19",
-        waktu: "08.00 - selesai",
-        tanggal: "11 Oktober 2021",
-        pembicara: "Prof. Kuwat Triyana & Dr. I Ketut Eddy P.",
-        deskripsi: "Bagaimana TI dan AI membantu menangani pandemi global."
-      },
-      {
-        id: 5,
-        img: "seminar5.jpg",
-        judul: "ARTIFICIAL INTELLIGENCE AND DIGITAL TRANSFORMATION: SHAPING THE FUTURE OF INNOVATION",
-        waktu: "08.00 - selesai",
-        tanggal: "24 Mei 2025",
-        pembicara: "Rinaldy Ardiansyah & M Fauzan Rabbani",
-        deskripsi: "Transformasi digital berbasis AI di berbagai industri."
-      },
-      {
-        id: 6,
-        img: "seminar6.jpg",
-        judul: "PELUANG DAN TANTANGAN IMPLEMENTASI ARTIFICIAL INTELLIGENCE DI DUNIA PENDIDIKAN",
-        waktu: "10.00 - 13.00",
-        tanggal: "26 Februari 2023",
-        pembicara: "Prof. Achmad Benny & Prof. Bambang Rianto",
-        deskripsi: "AI menciptakan pembelajaran adaptif dan berkualitas tinggi."
-      }
+      { id: 1, img: "seminar1.jpg", judul: "ARTIFICIAL INTELLIGENCE FOR 4.0 AND SOCIETY 5.0", waktu: "09.00 - selesai", tanggal: "3 Juni 2025", pembicara: "Ir. Asrul Sani, S.T. M.Kom., M.T., Ph.D, IPM.", deskripsi: "Temukan bagaimana AI menjadi motor penggerak era Revolusi Industri 4.0 dan Society 5.0!" },
+      { id: 2, img: "seminar2.jpg", judul: "INOVASI TEKNOLOGI PEMBELAJARAN DARING", waktu: "09.30 - selesai", tanggal: "26 Januari 2021", pembicara: "Dr. Dedy Hartama & Solly Aryza Lubis", deskripsi: "Pembelajaran modern berbasis daring yang interaktif dan efektif." },
+      { id: 3, img: "seminar3.jpg", judul: "CYBER SECURITY AWARENESS", waktu: "09.00 - 13.00", tanggal: "12 September 2021", pembicara: "K. M. Jauharul Maarif & Yudhis Thiro K.Y.", deskripsi: "Pentingnya keamanan siber dalam melindungi data di era digital." },
+      { id: 4, img: "seminar4.jpg", judul: "AI PENANGANAN COVID-19", waktu: "08.00 - selesai", tanggal: "11 Oktober 2021", pembicara: "Prof. Kuwat Triyana & Dr. I Ketut Eddy P.", deskripsi: "Bagaimana TI dan AI membantu menangani pandemi global." },
+      { id: 5, img: "seminar5.jpg", judul: "AI DAN TRANSFORMASI DIGITAL", waktu: "08.00 - selesai", tanggal: "24 Mei 2025", pembicara: "Rinaldy Ardiansyah & M Fauzan Rabbani", deskripsi: "Transformasi digital berbasis AI di berbagai industri." },
+      { id: 6, img: "seminar6.jpg", judul: "AI DI DUNIA PENDIDIKAN", waktu: "10.00 - 13.00", tanggal: "26 Februari 2023", pembicara: "Prof. Achmad Benny & Prof. Bambang Rianto", deskripsi: "AI menciptakan pembelajaran adaptif dan berkualitas tinggi." }
     ];
 
-    // render seminar cards
     const seminarContainer = document.getElementById("seminarList");
     seminarData.forEach(item => {
       const card = document.createElement('div');
       card.className = "group bg-white shadow-lg rounded-xl overflow-hidden border hover:shadow-2xl transition transform hover:scale-105 active:scale-95 cursor-pointer duration-300";
       card.setAttribute('tabindex', '0');
       card.innerHTML = `
-        <img src="${item.img}" class="w-full h-48 sm:h-52 object-cover" alt="${item.judul}" />
+        <img src="${item.img}" class="w-full h-48 sm:h-52 object-cover" />
         <div class="p-4 sm:p-5">
           <h4 class="font-semibold text-gray-800 text-sm sm:text-base wrap-break">${item.judul}</h4>
           <p class="text-xs sm:text-sm text-gray-600 mt-2">🕘 ${item.waktu}</p>
@@ -296,10 +182,9 @@
       seminarContainer.appendChild(card);
     });
 
-    // popup control
+    // Popup functions
     function openPopup(id) {
       const s = seminarData.find(x => x.id === id);
-      if (!s) return;
       document.getElementById("popupImg").src = s.img;
       document.getElementById("popupJudul").innerText = s.judul;
       document.getElementById("popupWaktu").innerText = s.waktu;
@@ -309,7 +194,6 @@
       document.getElementById("popupDaftarLink").href = formLink;
       document.getElementById("popup").classList.remove("hidden");
       document.getElementById("popup").classList.add("flex");
-      // lock scroll
       document.documentElement.style.overflow = 'hidden';
     }
     function closePopup() {
@@ -317,47 +201,8 @@
       document.getElementById("popup").classList.remove("flex");
       document.documentElement.style.overflow = '';
     }
-    // close popup on background click
-    document.getElementById("popup").addEventListener('click', function(e){
-      if (e.target === this) closePopup();
-    });
+    document.getElementById("popup").addEventListener('click', e => { if (e.target === e.currentTarget) closePopup(); });
     document.getElementById("closePopupBtn").addEventListener('click', closePopup);
-
-    // mobile menu toggle (slide down)
-    const hambtn = document.getElementById('hambtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const hambIcon = document.getElementById('hambIcon');
-
-    function showMobileMenu() {
-      mobileMenu.classList.remove('menu-slide-hidden');
-      mobileMenu.classList.add('menu-slide-shown');
-      hambtn.setAttribute('aria-expanded', 'true');
-      // change icon to X
-      hambIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>';
-    }
-    function hideMobileMenu() {
-      mobileMenu.classList.remove('menu-slide-shown');
-      mobileMenu.classList.add('menu-slide-hidden');
-      hambtn.setAttribute('aria-expanded', 'false');
-      hambIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />';
-    }
-    function toggleMobileMenu() {
-      const expanded = hambtn.getAttribute('aria-expanded') === 'true';
-      if (expanded) hideMobileMenu(); else showMobileMenu();
-    }
-    function closeMobileMenu() { hideMobileMenu(); }
-
-    hambtn.addEventListener('click', toggleMobileMenu);
-
-    // close mobile menu when resizing to desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 640) {
-        mobileMenu.classList.remove('menu-slide-shown');
-        mobileMenu.classList.add('menu-slide-hidden');
-        hambtn.setAttribute('aria-expanded', 'false');
-        hambIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />';
-      }
-    });
   </script>
 </body>
 </html>
