@@ -40,20 +40,27 @@
   @media (max-width: 640px) {
     
     body {
-      padding-top: 68px; /* header tidak terlalu tinggi */
+      padding-top: 60px; /* header tidak terlalu tinggi */
     }
 
+    header .py-4 {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
     #beranda {
-      min-height: 78vh !important;
-      padding: 24px;
-    }
+    min-height: 60vh !important; /* Lebih pendek */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-size: cover !important; /* Tidak terlalu besar */
+  }
     #beranda h2 {
-      font-size: 1.9rem;
-      line-height: 2.3rem;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
     }
     #beranda p {
-      font-size: 0.9rem;
-      margin-bottom: 20px;
+      font-size: 0.92rem;
+      margin-bottom: 16px;
     }
 
     #about {
